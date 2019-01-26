@@ -1,2 +1,3 @@
 # node-ts-sequelize-api
 An example API using nodejs, typescript and sequelize...
+
