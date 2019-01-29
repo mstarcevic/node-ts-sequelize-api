@@ -1,6 +1,6 @@
 import express from "express";
-import logger from "../utils/logger";
 import * as teacherController from "../controllers/teacherController";
+import logger from "../utils/logger";
 
 class TeacherRoutes {
     public router: express.Router = express.Router();

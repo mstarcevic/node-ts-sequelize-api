@@ -1,8 +1,8 @@
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import express from "express";
-import logger from "./utils/logger";
 import { mainRoutes } from "./routes/mainRouter";
+import logger from "./utils/logger";
 
 class App {
     public app: express.Application;

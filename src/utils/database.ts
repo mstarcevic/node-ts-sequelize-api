@@ -1,13 +1,28 @@
-import * as Sequelize from 'sequelize';
+import Sequelize from "sequelize";
+import logger from "../utils/logger";
 
-const sequelize = new Sequelize(
-    process.env.DATABASE,
-    process.env.DATABASE_USERNAME,
-    process.env.DATABASE_PASSWORD,
+const sequelize = new Sequelize("ntsa", "root", "de2lA6??",
     {
-        dialect: process.env.DATABASE_DIALECT,
-        host: process.env.DATABASE_HOST
-    }
-)
+        dialect: "mysql", // Using process.env.DATABASE_DIALECT rather then "mysql" caused a compile error~
+        host: process.env.DATABASE_HOST,
+        define: {
+            timestamps: true
+        },
+        pool: {
+            max: 5,
+            idle: 30
+        },
+        databaseVersion: 8.0
+    },
+);
+
+sequelize
+  .authenticate()
+  .then((err) => {
+    logger.info("Connection has been established successfully.");
+  })
+  .catch((err) => {
+      logger.info("Unable to connect to the database:", err);
+  });
 
 export default sequelize;
