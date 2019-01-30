@@ -11,6 +11,7 @@ class MainRouter {
 
     private config(): void {
         this.router.get("/teachers", teacherRoutes);
+        this.router.get("/teacher/:teacherId", teacherRoutes);
         this.router.get("/students", studentRoutes);
     }
 }

@@ -1,6 +1,5 @@
 import express from "express";
 import * as teacherController from "../controllers/teacherController";
-import logger from "../utils/logger";
 
 class TeacherRoutes {
     public router: express.Router = express.Router();
@@ -10,8 +9,8 @@ class TeacherRoutes {
     }
 
     private config(): void {
-        logger.info("now in Teachers router..."); // micktemp
-        this.router.get("/teachers", teacherController.getTeachers);
+        this.router.get("/teachers", teacherController.getAllTeachers);
+        this.router.get("/teacher/:teacherId", teacherController.getTeacherById);
     }
 }
 
