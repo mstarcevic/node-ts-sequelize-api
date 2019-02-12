@@ -13,7 +13,8 @@ class App {
     }
 
     private config(): void {
-        logger.info("Doing all the config stuff in app.js..."); // micktemp
+        logger.info("Doing all the preliminaries in app.js...");
+
         dotenv.config({ path: ".env.sample" });
         this.app.set("port", process.env.PORT || 3000);
         this.app.use(bodyParser.json());

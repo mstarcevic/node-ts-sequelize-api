@@ -10,6 +10,7 @@ class StudentRoutes {
 
     private config(): void {
         this.router.get("/students", studentController.getAllStudents);
+        this.router.get("/student/:studentId", studentController.getStudentById);
     }
 }
 

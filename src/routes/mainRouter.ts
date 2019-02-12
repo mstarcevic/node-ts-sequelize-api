@@ -1,4 +1,5 @@
 import * as express from "express";
+import { catchAllRoutes } from "./catchAllRoutes";
 import { studentRoutes } from "./studentRoutes";
 import { teacherRoutes } from "./teacherRoutes";
 
@@ -6,13 +7,15 @@ class MainRouter {
     public router: express.Router = express.Router();
 
     constructor() {
-        this.config();
+        this.initializeRoutes();
     }
 
-    private config(): void {
-        this.router.get("/teachers", teacherRoutes);
-        this.router.get("/teacher/:teacherId", teacherRoutes);
-        this.router.get("/students", studentRoutes);
+    private initializeRoutes(): void {
+        this.router.get(/^\/teacher(\/.+|s)$/, teacherRoutes);
+        this.router.post(/^\/teacher$/, teacherRoutes);
+        this.router.delete(/^\/teacher\/.+$/, teacherRoutes);
+        this.router.get(/^\/student(\/.+|s)$/, studentRoutes);
+        this.router.use("/", catchAllRoutes);
     }
 }
 
