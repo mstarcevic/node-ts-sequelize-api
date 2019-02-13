@@ -77,7 +77,7 @@ export function deleteTeacher(req: Request, res: Response, next: NextFunction) {
                         res.status(200).json({ message: `Teacher id ${teacherData.teacherId} successfully deleted!`});
                     }
                     // res.status(500).json({ message: `Unable to delete teacher id ${teacherData.teacherId}`})
-                    throw new Error();
+                    throw new Error(); // Not sure whether this will work. Needs some verification.
                 })
                 .catch((err) => res.status(500).json({ err: ["Unable to delete teacher", err]}));
         })

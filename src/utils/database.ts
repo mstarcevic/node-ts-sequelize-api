@@ -1,7 +1,9 @@
 import Sequelize from "sequelize";
 import logger from "../utils/logger";
 
-const sequelizeConnection = new Sequelize("ntsa", "root", "de2lA6??", {
+// micktodo Caused an error when getting details from secrets..
+// micktodo Can't be exposing database login details like this!
+const sequelizeConnection = new Sequelize("ntsa", "root", "de2lA6??", { 
     dialect: "mysql", // Using process.env.DATABASE_DIALECT rather then "mysql" caused a compile error...
     host: process.env.DATABASE_HOST,
     define: { timestamps: true },
